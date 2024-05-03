@@ -1,3 +1,4 @@
+console.log(123)
 const url = "https://godstraff.com/J73MZJGv"
 // const url = "https://godstraff.pro/cwv1l3k.php?key=x6t21rzbhyuxkvydzere"
 
