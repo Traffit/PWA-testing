@@ -1,0 +1,74 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Fowl Play Gold",
+    "short_name": "Fowl Play Gold",
+    "description": "Benvenuti nel coinvolgente mondo del gioco d'azzardo e delle straordinarie vincite con l'app Fowl Play Gold Immergetevi nell'emozione del gioco, dove ogni singolo giro può essere la chiave per vittorie straordinarie. Questa entusiasmante slot machine vi invita a mettere alla prova la vostra fortuna con divertenti galline che possono portarvi a vincite incredibili. State attenti, perché ogni giro potrebbe essere il vostro passo verso un jackpot enorme! Utilizzate la vostra strategia, piazzate scommesse sicure per assicurarvi la vittoria. Sentirete l'adrenalina mentre Fowl Play Gold determina il vostro destino. Scoprite i segreti del gioco, attivate i bonus e avrete la possibilità di raddoppiare le vostre vincite! Portate l'esperienza del casinò con voi grazie ai coinvolgenti giochi, godetevi grafiche accattivanti e animazioni avvincenti. Fowl Play Gold non è solo una slot machine; è un'opportunità per vincere in grande e divertirsi come mai prima. Preparatevi per giri emozionanti, dove ogni istante potrebbe portarvi a un enorme successo. La vostra avventura inizia ora, nel mondo di Fowl Play Gold, dove l'emozione è sempre al massimo!",
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "display": "standalone",
+    "orientation": "any",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "generated": "true",
+    "icons": [
+        {
+            "src": "./media/photos/fav/android-chrome-36x36.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "./media/photos/screen2.jpg",
+            "type": "image/png",
+            "sizes": "720x1280",
+            "form_factor": "wide"
+        },
+        {
+            "src": "./media/photos/screen3.jpg",
+            "type": "image/png",
+            "sizes": "720x1280",
+            "form_factor": "wide"
+        },
+        {
+            "src": "./media/photos/screen1.jpg",
+            "type": "image/png",
+            "sizes": "720x1280",
+            "form_factor": "wide"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+@media screen and (max-width: 560px) {
+  .program__container {
+    flex-direction: column;
+  }
+  .program__left {
+    width: 100%;
+  }
+}

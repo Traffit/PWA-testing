@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<title>Wheel of Fortune</title>
+
+    
+<script type="text/javascript">
+    var default_state = {   //Значения по умолчанию
+        // ОФОРМЛЕНИЕ
+        logo_in_button: true, //показывать ли лого в кнопке, зачения true и false. Если лого на кнопке, лого вверху скрывается
+        ribbon: true, //показывать ли ленточку, значения true и false
+        top_text: true, //показывать ли текст сверху, значения true и false. Если текст сверху, лого серху автоматом скрывается как и леточка с текстом
+        spin_background: false, //вращать ли фон, значения true и false
+        background_color: '#000000', //цвет фона за пределами фоновой картинки
+        gradient_start_color: '#FCD44B', //цвет начала градиента на тексте и некоторых элементах
+        gradient_end_color: '#CD8528', //цвет конца градиента на тексте и некоторых элементах
+
+        // ТЕКСТ
+        text_ribbon_top: 'Spin the wheel & <br> Win Free Spins', //текст сверху или на ленточке, <br> значит перенос на следующую строку
+        text_first_popup_top: 'Congratulations!', //текст на первом попапе, заголовок
+        text_first_popup_description: 'You Won <br>One more Spin', //текст на первом попапе, обозначени выигрыша
+        text_first_popup_button: 'SPIN AGAIN', //текст на первом попапе, кнопка
+        text_second_popup_top: 'Congratulations!', //текст на втором попапе, заголовок
+        text_second_popup_description: 'You Won:<br><a class="axent">300% Bonus<br>+ 100 Free Spins</a>', //текст на втором попапе, обозначени выигрыша
+        text_second_popup_button: 'Get it NOW', //текст на втором попапе, кнопка
+
+        //ССИЛКА
+        link_to: 'https://incklink.com/2RZDWFHG', //ссылка, куда шлет последняя кнопка, лого, если оно сверху, иконки в футере
+
+        //НЬЮ
+        session_redirect: true
+    };
+</script>
+
+    <script type="text/javascript" src="static/home/landings/wheel/js/onload.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="google" content="notranslate" />
+    <link rel="shortcut icon" href="static/home/landings/wheel/styles/default_state/favicon_16.png" sizes="16x16" id="favicon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&family=Sora:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/home/landings/wheel/css/root.css">
+    <link rel="stylesheet" href="static/home/landings/wheel/css/style.min.css">
+    <script src="static/home/landings/wheel/js/main.min.js"></script>
+    <script src="static/home/landings/wheel/js/detect/detect.js"></script>
+    <script src="static/home/landings/wheel/js/logic.js"></script>
+    
+<script type="text/javascript">
+    function get_param_value(name) {
+        var s = window.location.search;
+        s = s.match(new RegExp(name + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+
+    var object_parameters = new ParametrsLogic();
+    object_parameters.fbpix = get_param_value('fbp');
+    var object_fbp = new FacebookLogic(object_parameters.fbpix);
+    var transit_stone = get_param_value('transit');
+
+    !function(){
+        var url = 'https://incklink.com/2RZDWFHG'
+        let wasHere = localStorage.getItem('second_open');
+        var transit = get_param_value('transit');
+        if(default_state.session_redirect){
+            if(wasHere) {
+                if(transit != false){
+                    if(transit.includes('http')){
+                        url = transit
+                    }
+                }
+                document.location.href = url + window.location.search;
+            } else {
+                sendStats('visits')
+            }
+        }
+        localStorage.setItem('second_open', 1);
+    }();
+
+    function ready() {
+        var change_url = 'https://incklink.com/2RZDWFHG'
+        var transit = get_param_value('transit');
+        if(transit != false){
+            if(transit.includes('http')){
+                change_url = transit
+            }
+        }
+        var anchors = document.querySelectorAll('a');
+        Array.prototype.forEach.call(anchors, function (element, index) {
+            element.href = change_url + window.location.search;
+        });
+        // if(window.location.search != ""){
+        //   var newURL = location.href.split("?")[0];
+        //   window.history.pushState('object', document.title, newURL);
+        // }
+    };
+    document.addEventListener("DOMContentLoaded", ready);
+
+</script>
+
+</head>
+<body>
+
+<style>
+    .logo {
+        height: 9%!important;
+    }
+</style>
+<div class="logo" id="logo_top">
+    <a href="https://incklink.com/2RZDWFHG">
+    <img id="logotin" src="media/photos/2022/09/25/logo.svg" alt="">
+    </a>
+</div>
+
+<script>
+    if(get_param_value("promo") == "true" || get_param_value("promo") == false){
+        var frame = document.getElementById("logotin");
+        frame.style.display = "none";
+    }    
+</script>
+
+<div class="top_text" id="top_text">Spin the wheel! <br> Win Free Spins</div>
+
+    <div class="bg">
+        <img src="static/home/landings/wheel/styles/rocketplay/bg.jpg" id="bg" class="rotation_bg" alt="">
+
+<div class="wheel_all">
+    <div class="ribbon_text" id="ribbon">
+        <div class="text_in_ribbon" id="text_in_ribbon">Spin the wheel! <br> Get Your gift!</div>
+        <img src="static/home/landings/wheel/styles/default_state/ribbon.svg" alt="">
+    </div>
+        <div class="wheel-holder">
+            <img src="static/home/landings/wheel/styles/default_state/wheel-holder.png" alt="">
+        </div>
+
+        <div class="wheel_black" id="wheel-black">
+            <svg width="462px" height="100%" viewBox="0 0 466 462" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M279.453 0.677558C335.951 12.1723 386.181 44.2063 420.432 90.5862C454.682 136.966 470.52 194.398 464.884 251.777C459.248 309.157 432.537 362.409 389.917 401.238C347.297 440.067 291.794 461.715 234.139 461.997C176.483 462.279 120.771 441.174 77.7736 402.764C34.7759 364.353 7.54639 311.364 1.34966 254.042C-4.84707 196.721 10.4291 139.137 44.2247 92.4245C78.0202 45.7121 127.935 13.1887 184.318 1.14242L233 229L279.453 0.677558Z" fill="black" fill-opacity="0.8"/></svg>
+        </div>
+        <div class="whell-itself">
+            <img src="static/home/landings/wheel/styles/rocketplay/wheel.svg" class="wheel-animation" id="wheel_itself" alt="">
+        </div>
+        <div class="wheel-button-itself animation_blick" id="wheel-button-itself" onclick="spinwhhel1()">
+            <div class="spin_text" id="spin_text">SPIN</div>
+            <div class="logo_in_button" id="logo_in_button">
+                <img src="media/photos/2022/09/25/logo.svg" alt="">
+            </div>
+            <img src="static/home/landings/wheel/styles/rocketplay/wheel-button-itself.svg" class="wheel-button-itself-img" id="but-img" alt="">
+        </div>
+
+</div>
+    </div>
+<div class="popup" id="popup">
+    <div class="bg_win">
+        <div class="win1" id="win1">
+            <div class="win_text_header" id="win1_text_header">
+                Congratulations!
+            </div>
+            <div class="win_text_header_description" id="description1">
+                You have won<br>
+                one more spin!</div>
+            <div class="win_spinn_again_button" id="win_button1" onclick="spinwhhel2()">SPIN AGAIN</div>
+        </div>
+        <div class="win1" id="win2">
+            <div class="win_text_header" id="win2_text_header">
+                Congratulations!
+            </div>
+            <div class="win_text_header_description1" id="description2">
+                You have won:<br>
+                <a class="axent" onclick="sendStats('clicks')">300% Bonus<br>
+                + 100 Free Spins</a>
+                </div>
+            <a href="https://incklink.com/2RZDWFHG" onclick="sendStats('clicks')">
+            <div class="win_spinn_again_button" id="win_button2">Get it NOW</div>
+            </a>
+        </div>
+        <img src="static/home/landings/wheel/styles/default_state/bg_win.png" class="bg_win" alt="">
+    </div>
+</div>
+<a href="https://incklink.com/2RZDWFHG">
+    <div class="game_types">
+        <div class="game_type g_animation delay1">slots</div>
+        <div class="game_type g_animation delay2">roulette</div>
+        <div class="game_type g_animation delay3">poker</div>
+        <div class="game_type g_animation delay4">baccarat</div>
+        <div class="game_type g_animation delay5">blackjack</div>
+    </div>
+</a>
+<script type="text/javascript">
+        var wrapper = document.querySelector('.wheel-button-itself');
+        wrapper.addEventListener('click', function(e) {
+            if(transit_stone == false){
+                object_fbp.send_fb_event_allinstall();
+            }
+        });
+</script>
+
+</body>
+</html>
