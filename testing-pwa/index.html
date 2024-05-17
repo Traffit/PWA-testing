@@ -146,11 +146,13 @@
 
           let newParameters = parameters.split('&');
           if (parameters.includes('sub_id_3')) {
+            newParameters.push(`sub_id_9=${window.location.hostname}`);
             newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
             newParameters = newParameters.join('&');
 
             object_storage.set_parameters(newParameters);
           } else if (parameters.includes('sub3')) {
+            newParameters.push(`sub9=${window.location.hostname}`);
             newParameters.push(`sub10=${object_storage.get_user_id()}`);
             newParameters = newParameters.join('&');
 
