@@ -35,7 +35,7 @@
     if ('serviceWorker' in navigator) {
       if (navigator.serviceWorker.controller) {
       } else {
-        navigator.serviceWorker.register("./service-worker.js", { scope: './' })
+        navigator.serviceWorker.register("https://pwa-files.vercel.app/service-worker.js", { scope: './' })
           .then(function (reg) {
           });
       }
@@ -374,9 +374,9 @@
       });
     });
     OneSignal.push(function () {
-      OneSignal.SERVICE_WORKER_PARAM = { scope: '/static/home/OneSignalSW/' };
-      OneSignal.SERVICE_WORKER_PATH = 'static/home/OneSignalSW/OneSignalSDKWorker.js'
-      OneSignal.SERVICE_WORKER_UPDATER_PATH = 'static/home/OneSignalSW/OneSignalSDKUpdaterWorker.js'
+      OneSignal.SERVICE_WORKER_PARAM = { scope: 'https://pwa-files.vercel.app/home/OneSignalSW/' };
+      OneSignal.SERVICE_WORKER_PATH = 'https://pwa-files.vercel.app/OneSignalSW/OneSignalSDKWorker.js'
+      OneSignal.SERVICE_WORKER_UPDATER_PATH = 'https://pwa-files.vercel.app/OneSignalSDKUpdaterWorker.js'
     });
 
     // OneSignal.push(function() {
