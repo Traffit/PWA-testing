@@ -295,7 +295,7 @@ body:-moz-full-screen {
 .program__left {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 24px - 142px);
+  width: 100%
 }
 .program__left-bottom {
   display: flex;
@@ -423,6 +423,7 @@ body:-moz-full-screen {
 }
 .program__container {
   justify-content: space-between;
+  flex-direction: column;
 }
 .program__left-bottom > div {
   position: relative;
