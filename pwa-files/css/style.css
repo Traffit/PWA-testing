@@ -460,6 +460,11 @@ body:-moz-full-screen {
   overflow: hidden;
   min-width: 100px;
   background: grey;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .program__images {
   height: 164px;
