@@ -334,51 +334,53 @@
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js"></script>
 
   <script>
-    // Загружаем конфигурацию Firebase из файла
-    fetch('firebase-config.json')
-      .then(response => response.json())
-      .then(firebaseConfig => {
-        // Инициализация Firebase
-        firebase.initializeApp(firebaseConfig);
-        const messaging = firebase.messaging();
+    document.addEventListener("DOMContentLoaded", function() {
+      // Загружаем конфигурацию Firebase из файла
+      fetch('firebase-config.json')
+        .then(response => response.json())
+        .then(firebaseConfig => {
+          // Инициализация Firebase
+          firebase.initializeApp(firebaseConfig);
+          const messaging = firebase.messaging();
 
-        // Запрос разрешения на получение уведомлений
-        messaging.requestPermission()
-          .then(() => {
-            console.log('Notification permission granted.');
-            return messaging.getToken();
-          })
-          .then((token) => {
-            console.log('FCM Token:', token);
-            // Отправьте токен на сервер или сохраните его в базе данных
-          })
-          .catch((err) => {
-            console.log('Unable to get permission to notify.', err);
+          // Запрос разрешения на получение уведомлений
+          messaging.requestPermission()
+            .then(() => {
+              console.log('Notification permission granted.');
+              return messaging.getToken();
+            })
+            .then((token) => {
+              console.log('FCM Token:', token);
+              // Отправьте токен на сервер или сохраните его в базе данных
+            })
+            .catch((err) => {
+              console.log('Unable to get permission to notify.', err);
+            });
+
+          // Обработка входящих сообщений
+          messaging.onMessage((payload) => {
+            console.log('Message received. ', payload);
+            const notificationTitle = 'Foreground Message Title';
+            const notificationOptions = {
+              body: 'Foreground Message body.',
+              icon: '/firebase-logo.png'
+            };
+
+            new Notification(notificationTitle, notificationOptions);
           });
-
-        // Обработка входящих сообщений
-        messaging.onMessage((payload) => {
-          console.log('Message received. ', payload);
-          const notificationTitle = 'Foreground Message Title';
-          const notificationOptions = {
-            body: 'Foreground Message body.',
-            icon: '/firebase-logo.png'
-          };
-
-          new Notification(notificationTitle, notificationOptions);
-        });
-      })
-      .catch(error => console.error('Error loading Firebase config:', error));
-
+        })
+        .catch(error => console.error('Error loading Firebase config:', error));
+    });
+  </script>
+  <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/firebase-messaging-sw.js')
-      .then((registration) => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }).catch((error) => {
-        console.log('Service Worker registration failed:', error);
-      });
+      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        }).catch((error) => {
+          console.log('Service Worker registration failed:', error);
+        });
     }
-
   </script>
   <!-- END FIREBASE PUSH -->
 
