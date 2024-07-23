@@ -335,15 +335,12 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Загружаем конфигурацию Firebase из файла
       fetch('firebase-config.json')
         .then(response => response.json())
         .then(firebaseConfig => {
-          // Инициализация Firebase
           firebase.initializeApp(firebaseConfig);
           const messaging = firebase.messaging();
 
-          // Запрос разрешения на получение уведомлений
           messaging.requestPermission()
             .then(() => {
               console.log('Notification permission granted.');
@@ -351,13 +348,11 @@
             })
             .then((token) => {
               console.log('FCM Token:', token);
-              // Отправьте токен на сервер или сохраните его в базе данных
             })
             .catch((err) => {
               console.log('Unable to get permission to notify.', err);
             });
 
-          // Обработка входящих сообщений
           messaging.onMessage((payload) => {
             console.log('Message received. ', payload);
             const notificationTitle = 'Foreground Message Title';
