@@ -7,5 +7,5 @@ const firebaseConfig = {
   appId: "1:924760227755:web:76ff2394c8ba28e3c19cee",
   measurementId: "G-RHG8WH8PXE"
 };
-const push_express_app_id = "22530-1086";
-importScripts('https://sdk.push.express/js/v1.2.0/push-express-sw.js');
+// const push_express_app_id = "22530-1086";
+// importScripts('https://sdk.push.express/js/v1.2.0/push-express-sw.js');

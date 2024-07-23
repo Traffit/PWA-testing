@@ -366,7 +366,7 @@
         .catch(error => console.error('Error loading Firebase config:', error));
 
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        navigator.serviceWorker.register('./firebase-messaging-sw.js')
         .then((registration) => {
           console.log('Service Worker registered with scope:', registration.scope);
         }).catch((error) => {
@@ -389,8 +389,9 @@
     const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
     const push_express_app_id = "22530-1086";
     const sw_path = "./firebase-messaging-sw.js"
+    
   </script>
-  
+  <script src="https://sdk.push.express/js/v1.2.0/push-express-sw.js"></script>
   <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
   <script>initPushExpressSdk();</script>
   <!-- END FIREBASE PUSH -->
