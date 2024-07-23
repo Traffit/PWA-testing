@@ -330,29 +330,49 @@
   </script>
 
   <!-- FIREBASE PUSH -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
-  <script>
-      function generateUUID() { // Public Domain/MIT
-        var d = new Date().getTime();//Timestamp
-        var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16;//random number between 0 and 16
-            if (d > 0) {//Use timestamp until depleted
-                r = (d + r) % 16 | 0;
-                d = Math.floor(d / 16);
-            } else {//Use microseconds since page-load if supported
-                r = (d2 + r) % 16 | 0;
-                d2 = Math.floor(d2 / 16);
-            }
-            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-        });
-    }
-  </script>
-  <script type="module">
 
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script>
+    fetch('firebase-config.json')
+        .then(response => response.json())
+        .then(firebaseConfig => {
+          firebase.initializeApp(firebaseConfig);
+          const messaging = firebase.messaging();
+
+          messaging.requestPermission()
+            .then(() => {
+              console.log('Notification permission granted.');
+              return messaging.getToken();
+            })
+            .then((token) => {
+              console.log('FCM Token:', token);
+            })
+            .catch((err) => {
+              console.log('Unable to get permission to notify.', err);
+            });
+
+          messaging.onMessage((payload) => {
+            console.log('Message received. ', payload);
+            const notificationTitle = 'Foreground Message Title';
+            const notificationOptions = {
+              body: 'Foreground Message body.',
+              icon: '/firebase-logo.png'
+            };
+
+            new Notification(notificationTitle, notificationOptions);
+          });
+        })
+        .catch(error => console.error('Error loading Firebase config:', error));
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        }).catch((error) => {
+          console.log('Service Worker registration failed:', error);
+        });
+      }
 
     const firebaseConfig = {
       apiKey: "AIzaSyAlgEDiuNWaPBhEWiij3Ho8OW-2f1wJnB0",
@@ -365,19 +385,18 @@
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
 
     const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
     const push_express_app_id = "22530-1086";
-    const sw_path = ""
+    const sw_path = "./firebase-messaging-sw.js"
   </script>
+  
   <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
   <script>initPushExpressSdk();</script>
   <!-- END FIREBASE PUSH -->
 
  <!-- ONESIGNAL -->
- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
+ <!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer=""></script>
  
  <script>
@@ -412,7 +431,7 @@
     if (document.getElementById('onesignal-slidedown-allow-button')) {
       document.getElementById('onesignal-slidedown-allow-button').click()
     }
-   }, 3000);
+   }, 3000); -->
 
    </script>
 
