@@ -349,58 +349,29 @@
         });
     }
   </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      fetch('firebase-config.json')
-        .then(response => response.json())
-        .then(firebaseConfig => {
+  <script type="module">
 
-          firebase.initializeApp(firebaseConfig);
-          const messaging = firebase.messaging();
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
 
-          messaging.requestPermission()
-            .then(() => {
-              console.log('Notification permission granted.');
-              return messaging.getToken();
-            })
-            .then((token) => {
-              console.log('FCM Token:', token);
-            })
-            .catch((err) => {
-              console.log('Unable to get permission to notify.', err);
-            });
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlgEDiuNWaPBhEWiij3Ho8OW-2f1wJnB0",
+      authDomain: "pwa-push-c85c4.firebaseapp.com",
+      projectId: "pwa-push-c85c4",
+      storageBucket: "pwa-push-c85c4.appspot.com",
+      messagingSenderId: "924760227755",
+      appId: "1:924760227755:web:76ff2394c8ba28e3c19cee",
+      measurementId: "G-RHG8WH8PXE"
+    };
 
-          // Обработка входящих сообщений
-          messaging.onMessage((payload) => {
-            console.log('Message received. ', payload);
-            const notificationTitle = 'Foreground Message Title';
-            const notificationOptions = {
-              body: 'Foreground Message body.',
-              // icon: '/firebase-logo.png'
-            };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
 
-            new Notification(notificationTitle, notificationOptions);
-          });
-        })
-        .catch(error => console.error('Error loading Firebase config:', error));
-    });
     const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
     const push_express_app_id = "22530-1086";
-    const external_id = generateUUID();
-    const sw_path = "./firebase-messaging-sw.js"
+    const sw_path = ""
   </script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/firebase-messaging-sw.js')
-        .then((registration) => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        }).catch((error) => {
-          console.log('Service Worker registration failed:', error);
-        });
-    }
-  </script>
-  
   <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
   <script>initPushExpressSdk();</script>
   <!-- END FIREBASE PUSH -->
