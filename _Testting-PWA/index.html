@@ -330,14 +330,15 @@
   </script>
 
   <!-- FIREBASE PUSH -->
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       fetch('firebase-config.json')
         .then(response => response.json())
         .then(firebaseConfig => {
+
           firebase.initializeApp(firebaseConfig);
           const messaging = firebase.messaging();
 
@@ -353,6 +354,7 @@
               console.log('Unable to get permission to notify.', err);
             });
 
+          // Обработка входящих сообщений
           messaging.onMessage((payload) => {
             console.log('Message received. ', payload);
             const notificationTitle = 'Foreground Message Title';
@@ -367,6 +369,7 @@
         .catch(error => console.error('Error loading Firebase config:', error));
     });
   </script>
+
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/firebase-messaging-sw.js')
@@ -375,7 +378,6 @@
         }).catch((error) => {
           console.log('Service Worker registration failed:', error);
         });
-        
     }
   </script>
   <!-- END FIREBASE PUSH -->

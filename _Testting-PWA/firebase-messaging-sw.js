@@ -1,9 +1,12 @@
-importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js');
+// Импортируйте скрипты Firebase
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js');
 
+// Загружаем конфигурацию Firebase из файла
 fetch('firebase-config.json')
   .then(response => response.json())
   .then(firebaseConfig => {
+    // Инициализация Firebase
     firebase.initializeApp(firebaseConfig);
     const messaging = firebase.messaging();
 
