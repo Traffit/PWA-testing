@@ -351,50 +351,45 @@
     const sw_path = "./firebase-messaging-sw.js";
 
     document.addEventListener("DOMContentLoaded", function() {
-      // Загружаем конфигурацию Firebase из файла
-      fetch('firebase-config.json')
-        .then(response => response.json())
-        .then(firebaseConfig => {
-          firebase.initializeApp(firebaseConfig);
-          const messaging = firebase.messaging();
+      // Инициализация Firebase
+      firebase.initializeApp(firebaseConfig);
+      const messaging = firebase.messaging();
 
-          Notification.requestPermission()
-            .then((permission) => {
-              if (permission === 'granted') {
-                console.log('Notification permission granted.');
-                return messaging.getToken({ vapidKey });
-              } else {
-                console.log('Unable to get permission to notify.');
-              }
-            })
-            .then((token) => {
-              console.log('FCM Token:', token);
-              // Отправьте токен на сервер или сохраните его в базе данных
-            })
-            .catch((err) => {
-              console.log('Unable to get permission to notify.', err);
-            });
-
-          messaging.onMessage((payload) => {
-            console.log('Message received. ', payload);
-            const notificationTitle = 'Foreground Message Title';
-            const notificationOptions = {
-              body: 'Foreground Message body.',
-              icon: '/firebase-logo.png'
-            };
-
-            new Notification(notificationTitle, notificationOptions);
-          });
+      Notification.requestPermission()
+        .then((permission) => {
+          if (permission === 'granted') {
+            console.log('Notification permission granted.');
+            return messaging.getToken({ vapidKey });
+          } else {
+            console.log('Unable to get permission to notify.');
+          }
         })
-        .catch(error => console.error('Error loading Firebase config:', error));
+        .then((token) => {
+          console.log('FCM Token:', token);
+          // Отправьте токен на сервер или сохраните его в базе данных
+        })
+        .catch((err) => {
+          console.log('Unable to get permission to notify.', err);
+        });
+
+      messaging.onMessage((payload) => {
+        console.log('Message received. ', payload);
+        const notificationTitle = 'Foreground Message Title';
+        const notificationOptions = {
+          body: 'Foreground Message body.',
+          icon: '/firebase-logo.png'
+        };
+
+        new Notification(notificationTitle, notificationOptions);
+      });
 
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./firebase-messaging-sw.js')
-        .then((registration) => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        }).catch((error) => {
-          console.log('Service Worker registration failed:', error);
-        });
+          .then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          }).catch((error) => {
+            console.log('Service Worker registration failed:', error);
+          });
       }
     });
 
@@ -416,7 +411,12 @@
       });
     }
 
-    initPushExpressSdk();
+    // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
+    document.addEventListener("DOMContentLoaded", function() {
+      initPushExpressSdk();
+    });
+  </script>
+  <!-- END FIREBASE PUSH -->
   </script>
   <!-- END FIREBASE PUSH -->
 
