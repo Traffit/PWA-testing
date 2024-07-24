@@ -664,7 +664,6 @@
     const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
     const push_express_app_id = "22530-1086";
     const firebaseSwPath = "./firebase-messaging-sw.js";
-    const pushExpressSwPath = "./push-express-sw.js";
     const sw_path = "./push-express-sw.js";
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -708,7 +707,7 @@
       }
 
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(pushExpressSwPath)
+        navigator.serviceWorker.register(sw_path)
           .then((registration) => {
             console.log('Push Express Service Worker registered with scope:', registration.scope);
           }).catch((error) => {
@@ -719,7 +718,7 @@
       function initPushExpressSdk() {
         PushExpress.init({
           appId: push_express_app_id,
-          serviceWorkerPath: pushExpressSwPath,
+          serviceWorkerPath: sw_path,
         });
       }
 
