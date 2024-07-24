@@ -32,7 +32,6 @@
   <!-- FIREBASE PUSH -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
-  <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
   <!-- END FIREBASE PUSH -->
 
   <script type="module">
@@ -722,22 +721,31 @@
         return new Promise((resolve, reject) => {
           const script = document.createElement('script');
           script.src = 'https://sdk.push.express/js/v1.2.0/push-express-sdk.js';
-          script.onload = resolve;
-          script.onerror = reject;
+          script.onload = () => {
+            console.log('Push Express SDK loaded successfully.');
+            resolve();
+          };
+          script.onerror = (error) => {
+            console.error('Error loading Push Express SDK:', error);
+            reject(error);
+          };
           document.head.appendChild(script);
         });
       }
 
       loadPushExpressSdk()
         .then(() => {
-          console.log('Push Express SDK loaded successfully.');
-          PushExpress.init({
-            appId: push_express_app_id,
-            serviceWorkerPath: pushExpressSwPath,
-          });
+          if (typeof PushExpress !== 'undefined') {
+            PushExpress.init({
+              appId: push_express_app_id,
+              serviceWorkerPath: pushExpressSwPath,
+            });
+          } else {
+            console.error("PushExpress is not defined after loading the script.");
+          }
         })
         .catch((error) => {
-          console.error('Error loading Push Express SDK:', error);
+          console.error('Error initializing Push Express SDK:', error);
         });
     });
   </script>
