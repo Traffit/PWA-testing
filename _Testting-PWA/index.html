@@ -715,18 +715,7 @@
           });
       }
 
-      function initPushExpressSdk() {
-        PushExpress.init({
-          appId: push_express_app_id,
-          serviceWorkerPath: pushExpressSwPath,
-        });
-      }
-
-      if (typeof PushExpress !== 'undefined') {
-        initPushExpressSdk();
-      } else {
-        console.error("PushExpress is not defined. Make sure the SDK is properly included.");
-      }
+      initPushExpressSdk()
     });
   </script>
   <!-- END FIREBASE PUSH -->
