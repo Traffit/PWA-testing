@@ -727,7 +727,11 @@
       }
 
       // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
-      initPushExpressSdk();
+      if (typeof PushExpress !== 'undefined') {
+        initPushExpressSdk();
+      } else {
+        console.error("PushExpress is not defined. Make sure the SDK is properly included.");
+      }
     });
   </script>
   <!-- END FIREBASE PUSH -->
