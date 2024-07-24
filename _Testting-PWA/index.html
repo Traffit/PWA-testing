@@ -29,11 +29,6 @@
   <script src="./static/home/js/logic.js"></script>
   <script src="./static/home/js/detect/detect.js"></script>
 
-  <!-- FIREBASE PUSH -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script> -->
-  <!-- END FIREBASE PUSH -->
-
   <script type="module">
     if ('serviceWorker' in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -648,9 +643,8 @@
   <!--</script>-->
 
 
-  <!-- FIREBASE PUSH -->
+  <!-- PUSH-EXPRESS -->
   <script>
-
     const firebaseConfig = {
       apiKey: "AIzaSyAlgEDiuNWaPBhEWiij3Ho8OW-2f1wJnB0",
       authDomain: "pwa-push-c85c4.firebaseapp.com",
@@ -667,7 +661,8 @@
   </script>
   <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
   <script>initPushExpressSdk();</script>
-  <!-- END FIREBASE PUSH -->
+  <!-- END PUSH-EXPRESS -->
+  
   <script>
     if (module_full_screen && user.os.family == "Android") {
       // if (module_full_screen) {
