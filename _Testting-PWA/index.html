@@ -332,6 +332,7 @@
   <!-- FIREBASE PUSH -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script src="https://sdk.push.express/js/v1.2.0/push-express-sw.js"></script>
   <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
 
   <script>
@@ -344,9 +345,11 @@
       appId: "1:924760227755:web:76ff2394c8ba28e3c19cee",
       measurementId: "G-RHG8WH8PXE"
     };
+
     const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
     const push_express_app_id = "22530-1086";
-    const sw_path = "./firebase-messaging-sw.js";
+    const firebaseSwPath = "./firebase-messaging-sw.js";
+    const pushExpressSwPath = "./push-express-sw.js";
 
     document.addEventListener("DOMContentLoaded", function() {
       // Инициализация Firebase
@@ -382,34 +385,35 @@
       });
 
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./firebase-messaging-sw.js')
+        navigator.serviceWorker.register(firebaseSwPath)
           .then((registration) => {
-            console.log('Service Worker registered with scope:', registration.scope);
+            console.log('Firebase Service Worker registered with scope:', registration.scope);
           }).catch((error) => {
-            console.log('Service Worker registration failed:', error);
+            console.log('Firebase Service Worker registration failed:', error);
           });
       }
-    });
 
-    // Регистрация Push Express Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./push-express-sw.js')
-        .then((registration) => {
-          console.log('Push Express Service Worker registered with scope:', registration.scope);
-        }).catch((error) => {
-          console.log('Push Express Service Worker registration failed:', error);
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register(pushExpressSwPath)
+          .then((registration) => {
+            console.log('Push Express Service Worker registered with scope:', registration.scope);
+          }).catch((error) => {
+            console.log('Push Express Service Worker registration failed:', error);
+          });
+      }
+
+      // Инициализация Push Express SDK
+      function initPushExpressSdk() {
+        PushExpress.init({
+          appId: push_express_app_id,
+          serviceWorkerPath: pushExpressSwPath,
         });
-    }
+      }
 
-
-    // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
-    document.addEventListener("DOMContentLoaded", function() {
+      // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
       initPushExpressSdk();
     });
   </script>
-<script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
-<script>initPushExpressSdk();</script>
-
   <!-- END FIREBASE PUSH -->
 
  <!-- ONESIGNAL -->
