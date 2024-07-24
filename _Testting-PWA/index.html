@@ -664,9 +664,10 @@
     const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
     const push_express_app_id = "22530-1086";
     const firebaseSwPath = "./firebase-messaging-sw.js";
-    const sw_path = "./push-express-sw.js";
+    const pushExpressSwPath = "./push-express-sw.js";
 
     document.addEventListener("DOMContentLoaded", function() {
+      // Инициализация Firebase
       firebase.initializeApp(firebaseConfig);
       const messaging = firebase.messaging();
 
@@ -681,6 +682,7 @@
         })
         .then((token) => {
           console.log('FCM Token:', token);
+          // Отправьте токен на сервер или сохраните его в базе данных
         })
         .catch((err) => {
           console.log('Unable to get permission to notify.', err);
@@ -707,7 +709,7 @@
       }
 
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(sw_path)
+        navigator.serviceWorker.register(pushExpressSwPath)
           .then((registration) => {
             console.log('Push Express Service Worker registered with scope:', registration.scope);
           }).catch((error) => {
@@ -715,14 +717,28 @@
           });
       }
 
-      function initPushExpressSdk() {
-        PushExpress.init({
-          appId: push_express_app_id,
-          serviceWorkerPath: sw_path,
+      // Асинхронная загрузка Push Express SDK
+      function loadPushExpressSdk() {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://sdk.push.express/js/v1.2.0/push-express-sdk.js';
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
         });
       }
 
-        initPushExpressSdk();
+      loadPushExpressSdk()
+        .then(() => {
+          console.log('Push Express SDK loaded successfully.');
+          PushExpress.init({
+            appId: push_express_app_id,
+            serviceWorkerPath: pushExpressSwPath,
+          });
+        })
+        .catch((error) => {
+          console.error('Error loading Push Express SDK:', error);
+        });
     });
   </script>
   <!-- END FIREBASE PUSH -->
