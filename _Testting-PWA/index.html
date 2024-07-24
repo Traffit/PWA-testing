@@ -349,7 +349,7 @@
     const sw_path = "./firebase-messaging-sw.js";
 
     document.addEventListener("DOMContentLoaded", function() {
-
+      // Инициализация Firebase
       firebase.initializeApp(firebaseConfig);
       const messaging = firebase.messaging();
 
@@ -364,6 +364,7 @@
         })
         .then((token) => {
           console.log('FCM Token:', token);
+          // Отправьте токен на сервер или сохраните его в базе данных
         })
         .catch((err) => {
           console.log('Unable to get permission to notify.', err);
@@ -390,6 +391,7 @@
       }
     });
 
+    // Регистрация Push Express Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./push-express-sw.js')
         .then((registration) => {
@@ -399,6 +401,11 @@
         });
     }
 
+
+    // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
+    document.addEventListener("DOMContentLoaded", function() {
+      initPushExpressSdk();
+    });
   </script>
 <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
 <script>initPushExpressSdk();</script>
