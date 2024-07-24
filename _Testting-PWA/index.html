@@ -668,7 +668,6 @@
     const pushExpressSwPath = "./push-express-sw.js";
 
     document.addEventListener("DOMContentLoaded", function() {
-      // Инициализация Firebase
       firebase.initializeApp(firebaseConfig);
       const messaging = firebase.messaging();
 
@@ -683,7 +682,6 @@
         })
         .then((token) => {
           console.log('FCM Token:', token);
-          // Отправьте токен на сервер или сохраните его в базе данных
         })
         .catch((err) => {
           console.log('Unable to get permission to notify.', err);
@@ -718,7 +716,6 @@
           });
       }
 
-      // Инициализация Push Express SDK
       function initPushExpressSdk() {
         PushExpress.init({
           appId: push_express_app_id,
@@ -726,7 +723,6 @@
         });
       }
 
-      // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
       if (typeof PushExpress !== 'undefined') {
         initPushExpressSdk();
       } else {
