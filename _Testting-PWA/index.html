@@ -665,6 +665,7 @@
     const push_express_app_id = "22530-1086";
     const firebaseSwPath = "./firebase-messaging-sw.js";
     const pushExpressSwPath = "./push-express-sw.js";
+    const sw_path = "./push-express-sw.js";
 
     document.addEventListener("DOMContentLoaded", function() {
       firebase.initializeApp(firebaseConfig);
@@ -715,7 +716,18 @@
           });
       }
 
-      initPushExpressSdk()
+      function initPushExpressSdk() {
+        PushExpress.init({
+          appId: push_express_app_id,
+          serviceWorkerPath: pushExpressSwPath,
+        });
+      }
+
+      if (typeof PushExpress !== 'undefined') {
+        initPushExpressSdk();
+      } else {
+        console.error("PushExpress is not defined. Make sure the SDK is properly included.");
+      }
     });
   </script>
   <!-- END FIREBASE PUSH -->
