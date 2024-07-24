@@ -29,6 +29,13 @@
   <script src="./static/home/js/logic.js"></script>
   <script src="./static/home/js/detect/detect.js"></script>
 
+  <!-- FIREBASE PUSH -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script src="https://sdk.push.express/js/v1.2.0/push-express-sw.js"></script>
+  <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
+  <!-- END FIREBASE PUSH -->
+
   <script type="module">
     if ('serviceWorker' in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -329,92 +336,6 @@
 
   </script>
 
-  <!-- FIREBASE PUSH -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
-  <script src="https://sdk.push.express/js/v1.2.0/push-express-sw.js"></script>
-  <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
-
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyAlgEDiuNWaPBhEWiij3Ho8OW-2f1wJnB0",
-      authDomain: "pwa-push-c85c4.firebaseapp.com",
-      projectId: "pwa-push-c85c4",
-      storageBucket: "pwa-push-c85c4.appspot.com",
-      messagingSenderId: "924760227755",
-      appId: "1:924760227755:web:76ff2394c8ba28e3c19cee",
-      measurementId: "G-RHG8WH8PXE"
-    };
-
-    const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
-    const push_express_app_id = "22530-1086";
-    const firebaseSwPath = "./firebase-messaging-sw.js";
-    const pushExpressSwPath = "./push-express-sw.js";
-
-    document.addEventListener("DOMContentLoaded", function() {
-      // Инициализация Firebase
-      firebase.initializeApp(firebaseConfig);
-      const messaging = firebase.messaging();
-
-      Notification.requestPermission()
-        .then((permission) => {
-          if (permission === 'granted') {
-            console.log('Notification permission granted.');
-            return messaging.getToken({ vapidKey });
-          } else {
-            console.log('Unable to get permission to notify.');
-          }
-        })
-        .then((token) => {
-          console.log('FCM Token:', token);
-          // Отправьте токен на сервер или сохраните его в базе данных
-        })
-        .catch((err) => {
-          console.log('Unable to get permission to notify.', err);
-        });
-
-      messaging.onMessage((payload) => {
-        console.log('Message received. ', payload);
-        const notificationTitle = 'Foreground Message Title';
-        const notificationOptions = {
-          body: 'Foreground Message body.',
-          icon: '/firebase-logo.png'
-        };
-
-        new Notification(notificationTitle, notificationOptions);
-      });
-
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(firebaseSwPath)
-          .then((registration) => {
-            console.log('Firebase Service Worker registered with scope:', registration.scope);
-          }).catch((error) => {
-            console.log('Firebase Service Worker registration failed:', error);
-          });
-      }
-
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(pushExpressSwPath)
-          .then((registration) => {
-            console.log('Push Express Service Worker registered with scope:', registration.scope);
-          }).catch((error) => {
-            console.log('Push Express Service Worker registration failed:', error);
-          });
-      }
-
-      // Инициализация Push Express SDK
-      function initPushExpressSdk() {
-        PushExpress.init({
-          appId: push_express_app_id,
-          serviceWorkerPath: pushExpressSwPath,
-        });
-      }
-
-      // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
-      initPushExpressSdk();
-    });
-  </script>
-  <!-- END FIREBASE PUSH -->
 
  <!-- ONESIGNAL -->
  <!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
@@ -727,6 +648,89 @@
   <!--<script type="application/javascript">-->
   <!--document.getElementById('e8de7a77-43a1-2b3f-90d7-7367f1893b7c').innerHTML = '<a href="https://godstraff.com/pwatest?&se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'">Link</a>';-->
   <!--</script>-->
+
+
+  <!-- FIREBASE PUSH -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlgEDiuNWaPBhEWiij3Ho8OW-2f1wJnB0",
+      authDomain: "pwa-push-c85c4.firebaseapp.com",
+      projectId: "pwa-push-c85c4",
+      storageBucket: "pwa-push-c85c4.appspot.com",
+      messagingSenderId: "924760227755",
+      appId: "1:924760227755:web:76ff2394c8ba28e3c19cee",
+      measurementId: "G-RHG8WH8PXE"
+    };
+
+    const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
+    const push_express_app_id = "22530-1086";
+    const firebaseSwPath = "./firebase-messaging-sw.js";
+    const pushExpressSwPath = "./push-express-sw.js";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Инициализация Firebase
+      firebase.initializeApp(firebaseConfig);
+      const messaging = firebase.messaging();
+
+      Notification.requestPermission()
+        .then((permission) => {
+          if (permission === 'granted') {
+            console.log('Notification permission granted.');
+            return messaging.getToken({ vapidKey });
+          } else {
+            console.log('Unable to get permission to notify.');
+          }
+        })
+        .then((token) => {
+          console.log('FCM Token:', token);
+          // Отправьте токен на сервер или сохраните его в базе данных
+        })
+        .catch((err) => {
+          console.log('Unable to get permission to notify.', err);
+        });
+
+      messaging.onMessage((payload) => {
+        console.log('Message received. ', payload);
+        const notificationTitle = 'Foreground Message Title';
+        const notificationOptions = {
+          body: 'Foreground Message body.',
+          icon: '/firebase-logo.png'
+        };
+
+        new Notification(notificationTitle, notificationOptions);
+      });
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register(firebaseSwPath)
+          .then((registration) => {
+            console.log('Firebase Service Worker registered with scope:', registration.scope);
+          }).catch((error) => {
+            console.log('Firebase Service Worker registration failed:', error);
+          });
+      }
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register(pushExpressSwPath)
+          .then((registration) => {
+            console.log('Push Express Service Worker registered with scope:', registration.scope);
+          }).catch((error) => {
+            console.log('Push Express Service Worker registration failed:', error);
+          });
+      }
+
+      // Инициализация Push Express SDK
+      function initPushExpressSdk() {
+        PushExpress.init({
+          appId: push_express_app_id,
+          serviceWorkerPath: pushExpressSwPath,
+        });
+      }
+
+      // Убедитесь, что библиотека Push Express загружена перед вызовом initPushExpressSdk
+      initPushExpressSdk();
+    });
+  </script>
+  <!-- END FIREBASE PUSH -->
   <script>
     if (module_full_screen && user.os.family == "Android") {
       // if (module_full_screen) {
