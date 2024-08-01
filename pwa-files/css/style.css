@@ -442,7 +442,6 @@
 .pwa-wrapper .program__container {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
 }
 .pwa-wrapper .program__container.collumn {
   flex-direction: column;
