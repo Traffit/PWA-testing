@@ -443,6 +443,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .pwa-wrapper .program__container.collumn {
   flex-direction: column;
 }
