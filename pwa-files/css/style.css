@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.pwa-wrapper * {
+.pwa-body * {
   padding: 0;
   margin: 0;
   border: 0;
@@ -7,23 +7,23 @@
   --c-gray1: #4b4b4b;
   --c-gray2: #737373;
 }
-.pwa-wrapper *,
-.pwa-wrapper *:before,
-.pwa-wrapper *:after {
+.pwa-body *,
+.pwa-body *:before,
+.pwa-body *:after {
   box-sizing: border-box;
 }
-.pwa-wrapper :focus,
-.pwa-wrapper :active {
+.pwa-body :focus,
+.pwa-body :active {
   outline: none;
 }
-.pwa-wrapper a:focus,
-.pwa-wrapper a:active {
+.pwa-body a:focus,
+.pwa-body a:active {
   outline: none;
 }
-.pwa-wrapper nav,
-.pwa-wrapper footer,
-.pwa-wrapper header,
-.pwa-wrapper aside {
+.pwa-body nav,
+.pwa-body footer,
+.pwa-body header,
+.pwa-body aside {
   display: block;
 }
 .pwa-wrapper html,
@@ -37,48 +37,48 @@
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-.pwa-wrapper input,
-.pwa-wrapper button,
-.pwa-wrapper textarea {
+.pwa-body input,
+.pwa-body button,
+.pwa-body textarea {
   font-family: inherit;
 }
-.pwa-wrapper input::-ms-clear {
+.pwa-body input::-ms-clear {
   display: none;
 }
-.pwa-wrapper button {
+.pwa-body button {
   cursor: pointer;
 }
-.pwa-wrapper button::-moz-focus-inner {
+.pwa-body button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
-.pwa-wrapper a.text:active,
-.pwa-wrapper a.text:hover,
-.pwa-wrapper a:visited,
-.pwa-wrapper a.text {
+.pwa-body a.text:active,
+.pwa-body a.text:hover,
+.pwa-body a:visited,
+.pwa-body a.text {
   text-decoration: none;
 }
-.pwa-wrapper a,
-.pwa-wrapper a:visited {
+.pwa-body a,
+.pwa-body a:visited {
   text-decoration: none;
 }
-.pwa-wrapper a:hover {
+.pwa-body a:hover {
   text-decoration: none;
   cursor: pointer;
 }
-.pwa-wrapper img {
+.pwa-body img {
   max-width: 100%;
   vertical-align: top;
 }
-.pwa-wrapper ul li {
+.pwa-body ul li {
   list-style: none;
 }
-.pwa-wrapper h1,
-.pwa-wrapper h2,
-.pwa-wrapper h3,
-.pwa-wrapper h4,
-.pwa-wrapper h5,
-.pwa-wrapper h6 {
+.pwa-body h1,
+.pwa-body h2,
+.pwa-body h3,
+.pwa-body h4,
+.pwa-body h5,
+.pwa-body h6 {
   font-size: inherit;
   font-weight: inherit;
 }
