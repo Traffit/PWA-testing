@@ -112,7 +112,7 @@ function getReview(data) {
             </p>
           </div>
           <div class="review__qna">
-            <span>Was this review helpful?</span>
+            <span class="c-gray2">Was this review helpful?</span>
             <div class="review__true-false c-black">
               <a class="btn-true" aria-label="SÌ">SÌ</a>
               <a class="btn-false" aria-label="No">No</a>
