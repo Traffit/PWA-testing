@@ -6,3 +6,9 @@
     width: 100%;
   }
 }
+
+@container (max-width: 560px) {
+  .program__container {
+    flex-direction: column;
+  }
+}
