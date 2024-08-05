@@ -26,8 +26,8 @@
 .pwa-wrapper aside {
   display: block;
 }
-.pwa-wrapper html,
-.pwa-wrapper body {
+html.pwa-wrapper,
+body.pwa-wrapper {
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -82,7 +82,7 @@
   font-size: inherit;
   font-weight: inherit;
 }
-.pwa-wrapper body {
+body.pwa-wrapper {
   font-size: 14px;
   line-height: 32px;
   font-family: "Roboto", sans-serif;
@@ -90,19 +90,19 @@
   background: #fff;
   color: var(--c-gray2);
 }
-.pwa-wrapper body:-webkit-full-screen {
+body.pwa-wrapper:-webkit-full-screen {
   overflow: scroll !important;
 }
-.pwa-wrapper body:fullscreen {
+body.pwa-wrapper:fullscreen {
   overflow: scroll !important;
 }
-.pwa-wrapper body:-ms-fullscreen {
+body.pwa-wrapper:-ms-fullscreen {
   overflow: scroll !important;
 }
-.pwa-wrapper body:-webkit-full-screen {
+body.pwa-wrapper:-webkit-full-screen {
   overflow: scroll !important;
 }
-.pwa-wrapper body:-moz-full-screen {
+body.pwa-wrapper:-moz-full-screen {
   overflow: scroll !important;
 }
 .pwa-wrapper .c-white {

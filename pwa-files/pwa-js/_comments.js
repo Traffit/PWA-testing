@@ -2,34 +2,34 @@ const reviews = document.querySelector(".reviews__container");
 
 const reviews_data = [
   {
-    img: "media/photos/comments/Samuel_Fry.png",
+    img: "https://ui-avatars.com/api/?background=random&name=Gabriel Toso",
     name: "Gabriel Toso",
     comment:
     "💥 Wow, Fowl Play Gold è incredibile! Non pensavo che avrei trovato così tanta gioia in un'app di gioco. Il bonus di benvenuto di 200 euro è stato un regalo fantastico e i giochi sono davvero coinvolgenti. Grazie mille!",
   },
   {
-    img: "media/photos/comments/comment2.png",
+    img: "https://ui-avatars.com/api/?background=random&name=Marietta Scaturro",
     name: "Marietta Scaturro",
     comment:
       "Grazie a Fowl Play Gold ho trovato un modo divertente per trascorrere il mio tempo libero! L'app è ben progettata e i premi sono davvero allettanti!!!",
   },
   {
-    img: "media/photos/comments/comment3.png",
+    img: "https://ui-avatars.com/api/?background=random&name=Antonia Cardile",
     name: "Antonia Cardile",
     comment: "💰💰 Fowl Play Gold ha davvero cambiato il mio modo di vedere i giochi d'azzardo online! L'app è sicura, divertente e i premi sono reali. Grazie per offrire un'esperienza così fantastica!",
   },
   {
-    img: "media/photos/comments/comment4.png",
+    img: "https://ui-avatars.com/api/?background=random&name=Baldassare Garofano",
     name: "Baldassare Garofano",
     comment: "🎊 Fowl Play Gold è puro divertimento! Ogni volta che apro l'app, so che mi aspetta un'esperienza incredibile e premi da sogno. Grazie per aggiungere così tanta gioia alla mia giornata! 🤩🎁",
   },
   {
-    img: "media/photos/comments/comment5.png",
+    img: "https://ui-avatars.com/api/?background=random&name=Gilberto Biviano",
     name: "Gilberto Biviano",
     comment: "Non credevo ai miei occhi quando ho scoperto Fowl Play Gold! È come essere catapultati in un mondo di dolcezza e fortuna. Grazie per tanta emozione!))",
   },
   {
-    img: "media/photos/comments/comment6.png",
+    img: "https://ui-avatars.com/api/?background=random&name=Giuditta Zanoni",
     name: "Giuditta Zanoni",
     comment:
       "Fowl Play Gold è la mia nuova ossessione! L'app è facile da usare e i giochi sono così divertenti. Il bonus di benvenuto è stato un grande incentivo per iniziare e non vedo l'ora di vincere di più!🎰🎰 🎰",
