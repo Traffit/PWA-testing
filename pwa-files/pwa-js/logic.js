@@ -338,8 +338,6 @@ var FacebookLogic = class {
           source: "https://" + window.location.hostname
         };
 
-        console.log(data);
-        alert(JSON.stringify(data))
 
         fetch(url, {
           mode: 'cors',
@@ -351,7 +349,7 @@ var FacebookLogic = class {
           body: JSON.stringify(data)
         }).then((res) => {
           console.log(res);
-          alert(JSON.stringify(res));
+          // alert(JSON.stringify(res));
         });
       }
 
