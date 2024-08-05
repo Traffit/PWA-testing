@@ -26,8 +26,8 @@
 .pwa-wrapper aside {
   display: block;
 }
-html.pwa-wrapper,
-body.pwa-wrapper {
+.pwa-wrapper html,
+.pwa-body {
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -82,7 +82,7 @@ body.pwa-wrapper {
   font-size: inherit;
   font-weight: inherit;
 }
-body.pwa-wrapper {
+.pwa-body {
   font-size: 14px;
   line-height: 32px;
   font-family: "Roboto", sans-serif;
@@ -90,19 +90,19 @@ body.pwa-wrapper {
   background: #fff;
   color: var(--c-gray2);
 }
-body.pwa-wrapper:-webkit-full-screen {
+.pwa-body:-webkit-full-screen {
   overflow: scroll !important;
 }
-body.pwa-wrapper:fullscreen {
+.pwa-body:fullscreen {
   overflow: scroll !important;
 }
-body.pwa-wrapper:-ms-fullscreen {
+.pwa-body:-ms-fullscreen {
   overflow: scroll !important;
 }
-body.pwa-wrapper:-webkit-full-screen {
+.pwa-body:-webkit-full-screen {
   overflow: scroll !important;
 }
-body.pwa-wrapper:-moz-full-screen {
+.pwa-body:-moz-full-screen {
   overflow: scroll !important;
 }
 .pwa-wrapper .c-white {
@@ -272,6 +272,7 @@ body.pwa-wrapper:-moz-full-screen {
   margin: 5px 28px 0 0;
   position: relative;
   background: gray;
+  overflow: hidden;
 }
 .pwa-wrapper .program-logo::before {
   content: "LOGO";
