@@ -7,23 +7,23 @@
   --c-gray1: #4b4b4b;
   --c-gray2: #737373;
 }
-.pwa-body *,
-.pwa-body *:before,
-.pwa-body *:after {
+.pwa-wrapper *,
+.pwa-wrapper *:before,
+.pwa-wrapper *:after {
   box-sizing: border-box;
 }
-.pwa-body :focus,
-.pwa-body :active {
+.pwa-wrapper :focus,
+.pwa-wrapper :active {
   outline: none;
 }
-.pwa-body a:focus,
-.pwa-body a:active {
+.pwa-wrapper a:focus,
+.pwa-wrapper a:active {
   outline: none;
 }
-.pwa-body nav,
-.pwa-body footer,
-.pwa-body header,
-.pwa-body aside {
+.pwa-wrapper nav,
+.pwa-wrapper footer,
+.pwa-wrapper header,
+.pwa-wrapper aside {
   display: block;
 }
 .pwa-wrapper html,
@@ -37,48 +37,48 @@
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-.pwa-body input,
-.pwa-body button,
-.pwa-body textarea {
+.pwa-wrapper input,
+.pwa-wrapper button,
+.pwa-wrapper textarea {
   font-family: inherit;
 }
-.pwa-body input::-ms-clear {
+.pwa-wrapper input::-ms-clear {
   display: none;
 }
-.pwa-body button {
+.pwa-wrapper button {
   cursor: pointer;
 }
-.pwa-body button::-moz-focus-inner {
+.pwa-wrapper button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
-.pwa-body a.text:active,
-.pwa-body a.text:hover,
-.pwa-body a:visited,
-.pwa-body a.text {
+.pwa-wrapper a.text:active,
+.pwa-wrapper a.text:hover,
+.pwa-wrapper a:visited,
+.pwa-wrapper a.text {
   text-decoration: none;
 }
-.pwa-body a,
-.pwa-body a:visited {
+.pwa-wrapper a,
+.pwa-wrapper a:visited {
   text-decoration: none;
 }
-.pwa-body a:hover {
+.pwa-wrapper a:hover {
   text-decoration: none;
   cursor: pointer;
 }
-.pwa-body img {
+.pwa-wrapper img {
   max-width: 100%;
   vertical-align: top;
 }
 .pwa-body ul li {
   list-style: none;
 }
-.pwa-body h1,
-.pwa-body h2,
-.pwa-body h3,
-.pwa-body h4,
-.pwa-body h5,
-.pwa-body h6 {
+.pwa-wrapper h1,
+.pwa-wrapper h2,
+.pwa-wrapper h3,
+.pwa-wrapper h4,
+.pwa-wrapper h5,
+.pwa-wrapper h6 {
   font-size: inherit;
   font-weight: inherit;
 }
