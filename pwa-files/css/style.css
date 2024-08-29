@@ -7,6 +7,9 @@
   --c-gray1: #4b4b4b;
   --c-gray2: #737373;
 }
+.pwa-body {
+  margin: 5px;
+}
 
 .pwa-body::-webkit-scrollbar,
 .pwa-body::-webkit-scrollbar-thumb:hover,
