@@ -1264,3 +1264,7 @@
   word-wrap: wrap;
   max-width: 100%;
 }/*# sourceMappingURL=style.css.map */
+
+.skiptranslate.goog-te-gadget {
+  display: none;
+}
