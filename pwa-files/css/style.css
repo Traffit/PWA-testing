@@ -963,6 +963,9 @@
 .pwa-wrapper .program-btn.click .pr-install {
   display: none;
 }
+#install-button {
+  text-transform: capitalize;
+}
 .pwa-wrapper .program-install,
 .pwa-wrapper .program-open {
   transition: all 0.5s ease;
