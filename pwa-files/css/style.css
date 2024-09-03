@@ -501,6 +501,7 @@
 .pwa-wrapper .program__images img {
   height: 100%;
   width: auto;
+  min-width: 100px;
 }
 .pwa-wrapper .program__images a {
   width: -moz-max-content;
