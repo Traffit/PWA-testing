@@ -500,6 +500,7 @@
 }
 .pwa-wrapper .program__images img {
   height: 100%;
+  width: auto;
 }
 .pwa-wrapper .program__images a {
   width: -moz-max-content;
