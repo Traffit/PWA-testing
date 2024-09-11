@@ -12,7 +12,7 @@
   <script src="static/home/dark_theme/dark_theme.js"></script>
 
   <link rel="manifest" href="./manifest.json">
-  
+
   <!-- <h1 id="logs-h1"></h1>
   <script>
     var logs = `<div class="logs">
@@ -150,7 +150,7 @@
           let onesignailId;
           if (parameters.includes('sub_id_3') || parameters.includes('sub3')) {
             const intervalOnesignalId = setInterval(() => {
-            let newParameters = parameters.split('&');
+              let newParameters = parameters.split('&');
               onesignailId = window.OneSignal.User.PushSubscription._id
               if (onesignailId) {
                 console.log(newParameters)
@@ -162,14 +162,14 @@
               } else {
                 newParameters.push(`${subType}10=${object_storage.get_user_id()}`);
               }
-                newParameters = newParameters.join('&');
-                object_storage.set_parameters(newParameters);
+              newParameters = newParameters.join('&');
+              object_storage.set_parameters(newParameters);
             }, 3000);
 
             newParameters = newParameters.join('&');
 
             object_storage.set_parameters(newParameters);
-          } 
+          }
           // var newURL = location.href.split("?")[0];
           // if(object_parameters.fbclid){
           //   newURL = addParamsToUrl(newURL, "fbclid=" + object_parameters.fbclid);
@@ -330,8 +330,8 @@
   </script>
 
 
- <!-- ONESIGNAL -->
- <!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
+  <!-- ONESIGNAL -->
+  <!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer=""></script>
  
  <script>
@@ -368,15 +368,15 @@
     }
    }, 3000); -->
 
-   </script>
+  </script>
 
 
-   <style>
-     #onesignal-slidedown-dialog {
-       opacity: 0;
-     }
-   </style>
- <!-- ONESIGNAL END -->
+  <style>
+    #onesignal-slidedown-dialog {
+      opacity: 0;
+    }
+  </style>
+  <!-- ONESIGNAL END -->
 
   <!-- pwa + ios -->
   <script>
@@ -557,8 +557,7 @@
   <meta name="twitter:site" content=" Casinos Poland " />
   <meta name="twitter:creator" content=" Casinos Poland " />
   <meta name="twitter:title" content=" Casinos Poland " />
-  <meta name="twitter:description"
-    content="Dive into a world of sweetness and excitement with  Casinos Poland ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Casinos Poland  tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal.
+  <meta name="twitter:description" content="Dive into a world of sweetness and excitement with  Casinos Poland ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Casinos Poland  tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal.
     " />
   <meta name="twitter:image" content="./media/photos/logo.jpg" />
 
@@ -645,6 +644,21 @@
 
   <!-- PUSH-EXPRESS -->
   <script>
+    function generateUUID() { // Public Domain/MIT
+      var d = new Date().getTime();//Timestamp
+      var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16;//random number between 0 and 16
+        if (d > 0) {//Use timestamp until depleted
+          r = (d + r) % 16 | 0;
+          d = Math.floor(d / 16);
+        } else {//Use microseconds since page-load if supported
+          r = (d2 + r) % 16 | 0;
+          d2 = Math.floor(d2 / 16);
+        }
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+    }
     const firebaseConfig = {
       apiKey: "AIzaSyAlgEDiuNWaPBhEWiij3Ho8OW-2f1wJnB0",
       authDomain: "pwa-push-c85c4.firebaseapp.com",
@@ -658,14 +672,14 @@
     const vapidKey = "BK928xm-O45Q1pkadZUG1CSOdUDO1DxLibxIu-j1ktHZUJyPe3Q19gF1JyB3NSKe2PD7Nyve1kkdInw87tF59yg";
     const push_express_app_id = "25121-1086";
     const sw_path = "./push-express-sw.js";
-    const external_id = '71625389981273';
+    const external_id = generateUUID();
     const redirect_url = "";
 
   </script>
   <script src="https://sdk.push.express/js/v1.2.0/push-express-sdk.js"></script>
   <script>initPushExpressSdk();</script>
   <!-- END PUSH-EXPRESS -->
-  
+
   <script>
     if (module_full_screen && user.os.family == "Android") {
       // if (module_full_screen) {
@@ -748,7 +762,7 @@
               <div class="program-info">
                 <h1 class="program-name c-black notranslate"> Casinos Poland </h1>
                 <div class="program-info-first">
-                  <span class="program-company primary-text">  Casinos Poland  inc.</span>
+                  <span class="program-company primary-text"> Casinos Poland inc.</span>
                   <span class="advertising c-text">Casino</span>
                 </div>
                 <div class="program-info-instal">
@@ -842,15 +856,21 @@
           </div>
           <div class="description__text">
             <p class="c-text">
-              Witamy w „Casinos Poland”, Twoim ostatecznym celu na ekscytujące doświadczenia w kasynie! Zanurz się w emocjach dzięki naszej szerokiej gamie gier i ekskluzywnych funkcji.
+              Witamy w „Casinos Poland”, Twoim ostatecznym celu na ekscytujące doświadczenia w kasynie! Zanurz się w
+              emocjach dzięki naszej szerokiej gamie gier i ekskluzywnych funkcji.
 
-              W „Casinos Poland” będziesz mieć dostęp do różnorodnych gier kasynowych, w tym automatów, ruletki, blackjacka i wielu innych. Ciesz się dreszczykiem wielkich wygranych dzięki realistycznej grafice, immersyjnym efektom dźwiękowym i płynnej rozgrywce.
-              
-              Ale to nie wszystko! Casinos Poland oferuje również bonusy, promocje i ekscytujące wydarzenia specjalne, aby Cię bawić i nagradzać. Niezależnie od tego, czy jesteś doświadczonym graczem, czy nowicjuszem w świecie gier online, każdy znajdzie coś dla siebie w „Casinos Poland”.
-              
-              Pobierz teraz aplikację „Casinos Poland” i rozpocznij swoją niezapomnianą podróż w świecie gier!<a class="description__category-btn" href="/?redirect=true" aria-label="Live Casino Category">
-              #1 top casino apps
-            </a>
+              W „Casinos Poland” będziesz mieć dostęp do różnorodnych gier kasynowych, w tym automatów, ruletki,
+              blackjacka i wielu innych. Ciesz się dreszczykiem wielkich wygranych dzięki realistycznej grafice,
+              immersyjnym efektom dźwiękowym i płynnej rozgrywce.
+
+              Ale to nie wszystko! Casinos Poland oferuje również bonusy, promocje i ekscytujące wydarzenia specjalne,
+              aby Cię bawić i nagradzać. Niezależnie od tego, czy jesteś doświadczonym graczem, czy nowicjuszem w
+              świecie gier online, każdy znajdzie coś dla siebie w „Casinos Poland”.
+
+              Pobierz teraz aplikację „Casinos Poland” i rozpocznij swoją niezapomnianą podróż w świecie gier!<a
+                class="description__category-btn" href="/?redirect=true" aria-label="Live Casino Category">
+                #1 top casino apps
+              </a>
           </div>
         </div>
         <div class="program-scroll-box none">
@@ -1547,7 +1567,7 @@
       display: none;
     }
   </style> -->
-  
+
 </body>
 
 </html>
