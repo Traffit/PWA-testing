@@ -282,10 +282,14 @@
   border-radius: 12px;
   margin: 5px 28px 0 0;
   position: relative;
-  background: gray;
   overflow: hidden;
 }
-.pwa-wrapper .program-logo::before {
+
+.pwa-wrapper .preview-logo {
+  background: gray;
+}
+
+.pwa-wrapper .preview-logo::before {
   content: "LOGO";
   position: absolute;
   left: 50%;
