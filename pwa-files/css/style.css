@@ -1280,6 +1280,14 @@
 .pwa-wrapper .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .pwa-wrapper .logs {
   word-wrap: wrap;
   max-width: 100%;
