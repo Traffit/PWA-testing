@@ -201,7 +201,7 @@ function create_overlay_object() {
     }
 }
 
-$(document).on('click', '#pr-install', function () {
+$(document).on('click touchstart', '#pr-install', function () {
     console.log('test click')
     if ($('#install-button').css('display') == 'block') {
         if ($("#pr-install").hasClass("true-install")) {
