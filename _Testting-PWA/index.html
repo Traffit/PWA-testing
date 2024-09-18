@@ -255,6 +255,7 @@
     }
 
     $(document).on('click', '#pr-install', function () {
+      console.log('test');
       if ($('#install-button').css('display') == 'block') {
         if ($("#pr-install").hasClass("true-install")) {
           object_pwa.install()
