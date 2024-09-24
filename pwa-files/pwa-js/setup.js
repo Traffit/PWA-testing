@@ -72,13 +72,24 @@ function create_overlay_object() {
 }
 
 $(document).on("click", "#pr-install", function () {
+  console.log('test click')
   if ($("#install-button").css("display") == "block") {
+    console.log('test first')
+
     if ($("#pr-install").hasClass("true-install")) {
+      console.log('test first')
+      
       object_pwa.install();
     } else if ($("#pr-install").hasClass("fake-install")) {
+      console.log('test else if')
+
       if (object_pwa.can_install()) {
+        console.log('test if can_install')
+
         object_pwa.install();
       } else {
+        console.log('test else last')
+
         fake_install_start();
       }
     }
@@ -142,5 +153,5 @@ jQuery(document).ready(function ($) {
         }
       }
     }
-  }, 4000);
+  }, 5500);
 });
