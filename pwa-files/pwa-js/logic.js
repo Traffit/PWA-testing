@@ -4,6 +4,7 @@ var PwaLogic = class {
   }
 
   install() {
+    alert(deferredPrompt)
     this.deferredPrompt.prompt();
     this.deferredPrompt.userChoice.then(function (choiceResult) {
       if (choiceResult.outcome === 'accepted') {
