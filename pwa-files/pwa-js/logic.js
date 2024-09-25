@@ -13,7 +13,7 @@ var PwaLogic = class {
         console.log('User chose to not install your PWA');
         if (localStorage.getItem("dismissed") == "true") {
           localStorage.removeItem("dismissed");
-          fake_install_start();
+          // fake_install_start();
         } else {
           localStorage.setItem("dismissed", "true");
         }
