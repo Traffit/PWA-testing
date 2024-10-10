@@ -342,7 +342,6 @@ var FacebookLogic = class {
         console.log(data)
 
         fetch(url, {
-          mode: 'no-cors',
           credentials: 'omit',
           method: 'POST',
           headers: {
