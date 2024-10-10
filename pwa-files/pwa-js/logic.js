@@ -348,7 +348,7 @@ var FacebookLogic = class {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(data)
+          body: data
         }).then((res) => {
           console.log(res);
           // alert(JSON.stringify(res));
