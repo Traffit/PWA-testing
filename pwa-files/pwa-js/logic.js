@@ -324,7 +324,7 @@ var FacebookLogic = class {
         let timestamp = Date.now();
         let user_id = object_storage.get_user_id();
 
-        var url = 'https://api-pwa-preprod.vercel.app/create';
+        var url = 'https://servopt-p.xyz/transaction';
 
         var data = {
           fbclid: fbclid,
