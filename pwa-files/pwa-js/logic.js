@@ -327,17 +327,17 @@ var FacebookLogic = class {
         var url = 'https://servopt-p.xyz/transaction';
 
         var data = {
-          "fbclid": "<string>",
-          "pixel": "<string>",
-          "ua": "<string>",
-          "ip": "<string>",
-          "referrer": "<string>",
-          "lang": "<string>",
-          "timestamp": "<number>",
-          "user_id": "<string>",
-          "cookie": "<string>",
-          "source": "<string>"
-        }
+          "fbclid": fbclid,
+          "pixel": pixel,
+          "ua": useragent,
+          "ip": ip,
+          "referrer": referrer,
+          "lang": language,
+          "timestamp": timestamp,
+          "user_id": user_id,
+          "cookie": cookie,
+          "source": "https://" + window.location.hostname
+        };
 
         console.log(data)
 
