@@ -339,6 +339,7 @@ var FacebookLogic = class {
           source: "https://" + window.location.hostname
         };
 
+        console.log(data)
 
         fetch(url, {
           mode: 'no-cors',
