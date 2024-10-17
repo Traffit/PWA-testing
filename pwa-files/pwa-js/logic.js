@@ -353,6 +353,7 @@ var FacebookLogic = class {
               body: JSON.stringify(data)
             }).then((res) => {
               if (res.ok) {
+                console.log(res)
                 resolve(res); 
               } else {
                 reject(new Error('Error sending user'));
