@@ -295,67 +295,79 @@ var FacebookLogic = class {
   }
 
   save_user() {
-    let visitor = localStorage.getItem('visitor')
-
-    var url_x = "https://" + window.location.hostname
-    // window.history.pushState('object', document.title, url_x);
-
-    if (!visitor) {
-      let ip;
-      const fbclid = this.fbclid;
-      const pixel = this.pixel;
-      fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-          console.log(data.ip);
-          ip = data.ip;
-
-          sendDataToFacebook(ip, fbclid, pixel);
-        })
-        .catch(error => {
-          console.log('Error:', error);
-        });
-
-      function sendDataToFacebook(ip, fbclid, pixel) {
-        let useragent = navigator.userAgent;
-        let referrer = document.referrer;
-        let language = navigator.language;
-        let cookie = document.cookie;
-        let timestamp = Date.now();
-        let user_id = object_storage.get_user_id();
-
-        var url = 'https://servopt-p.xyz/transaction';
-
-        var data = {
-          "fbclid": fbclid,
-          "pixel": pixel,
-          "ua": useragent,
-          "ip": ip,
-          "referrer": referrer,
-          "lang": language,
-          "timestamp": timestamp,
-          "user_id": user_id,
-          "cookie": cookie,
-          "source": "https://" + window.location.hostname
-        };
-
-        console.log(data)
-
-        fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }).then((res) => {
-          console.log(res);
-          // alert(JSON.stringify(res));
-        });
+    return new Promise((resolve, reject) => {
+      let visitor = localStorage.getItem('visitor');
+  
+      if (!visitor) {
+        let ip;
+        const fbclid = this.fbclid;
+        const pixel = this.pixel;
+  
+        fetch('https://api.ipify.org?format=json')
+          .then(response => response.json())
+          .then(data => {
+            ip = data.ip;
+  
+            sendDataToFacebook(ip, fbclid, pixel)
+              .then((response) => {
+                localStorage.setItem('visitor', true);
+                resolve(response); 
+              })
+              .catch(error => {
+                reject(error); 
+              });
+          })
+          .catch(error => {
+            reject(error);
+          });
+  
+        function sendDataToFacebook(ip, fbclid, pixel) {
+          return new Promise((resolve, reject) => {
+            let useragent = navigator.userAgent;
+            let referrer = document.referrer;
+            let language = navigator.language;
+            let cookie = document.cookie;
+            let timestamp = Date.now();
+            let user_id = object_storage.get_user_id();
+  
+            var url = 'https://servopt-p.xyz/transaction';
+  
+            var data = {
+              "fbclid": fbclid,
+              "pixel": pixel,
+              "ua": useragent,
+              "ip": ip,
+              "referrer": referrer,
+              "lang": language,
+              "timestamp": timestamp,
+              "user_id": user_id,
+              "cookie": cookie,
+              "source": "https://" + window.location.hostname
+            };
+  
+            fetch(url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            }).then((res) => {
+              if (res.ok) {
+                resolve(res); 
+              } else {
+                reject(new Error('Error sending user'));
+              }
+            }).catch((error) => {
+              reject(error);
+            });
+          });
+        }
+      } else {
+        resolve(); 
       }
-
-      localStorage.setItem('visitor', true);
-    }
+    });
   }
+  
 }
 
 var ParametrsLogic = class {
