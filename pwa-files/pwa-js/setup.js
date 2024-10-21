@@ -148,5 +148,5 @@ jQuery(document).ready(function ($) {
         }
       }
     }
-  }, 7300);
+  }, 10000);
 });
