@@ -1,6 +1,6 @@
 var loader_bg_color;
 var loader_boder_color;
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && module_dark_theme) {
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && module_dark_theme === 'dark') {
     loader_bg_color = '#131313';
     loader_boder_color = 'rgb(40 40 40)';
     loader_color = '#a8c8fb';
@@ -12,7 +12,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 
 var r = document.querySelector(':root');
 function dark_theme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches || module_dark_theme === 'dark') {
         r.style.setProperty('--white', '#131313');
         r.style.setProperty('--black', '#ffffff');
         r.style.setProperty('--black_interface', '#c9c9c9');
@@ -102,11 +102,10 @@ function dark_theme() {
             }, 18300)
         }
         document.getElementById("pr-install").addEventListener("click", changecolor);
-
     }
-};
+}
 window.onload = function(){
-    if(module_dark_theme){
+    if(module_dark_theme !== 'light'){
         dark_theme();
     }
 };
