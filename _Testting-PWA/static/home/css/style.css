@@ -26,6 +26,9 @@ header {
   width: 0;
   display: none;
 }
+.pwa-wrapper {
+  overflow-x: hidden;
+}
 .pwa-wrapper *,
 .pwa-wrapper *:before,
 .pwa-wrapper *:after {

@@ -49,8 +49,10 @@
   .pwa-wrapper .program__left {
     width: 100%;
   }
+  .pwa-wrapper .btn {
+    width: 100%;
+  }
 }
-
 
 @container (max-width: 560px) {
   .pwa-wrapper .program__container {
