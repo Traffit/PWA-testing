@@ -1,7 +1,7 @@
 var loader_bg_color;
 var loader_boder_color;
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && module_dark_theme === 'dark') {
-    loader_bg_color = '#131313';
+    loader_bg_color = '#202124';
     loader_boder_color = 'rgb(40 40 40)';
     loader_color = '#a8c8fb';
 } else {
@@ -13,7 +13,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 var r = document.querySelector(':root');
 function dark_theme() {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches || module_dark_theme === 'dark') {
-        r.style.setProperty('--white', '#131313');
+        r.style.setProperty('--white', '#202124');
         r.style.setProperty('--black', '#ffffff');
         r.style.setProperty('--black_interface', '#c9c9c9');
         r.style.setProperty('--black_text', '#e3e3e3');
