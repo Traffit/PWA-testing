@@ -49,6 +49,9 @@
   .pwa-wrapper .program__left {
     width: 100%;
   }
+  .pwa-wrapper .btn {
+    width: 100%;
+  }
 }
 
 
