@@ -985,6 +985,7 @@ header {
 .pwa-wrapper .program.video .program__downloads-img {
   border: 0.5mm solid #000 !important;
 }
+.pwa-wrapper .program.video .program__downloads-img,
 .pwa-wrapper .program.video .program__interaction-img,
 .pwa-wrapper .program.video .program__interaction-img span,
 .pwa-wrapper .program.video .program__reviews-rating img {
