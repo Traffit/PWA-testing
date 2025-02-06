@@ -463,6 +463,7 @@ header {
 .pwa-wrapper .program__container.video {
   background: #202124;
   margin-bottom: 30px;
+  padding-top: 15px;
 }
 .pwa-wrapper .program__container.collumn {
   flex-direction: column;

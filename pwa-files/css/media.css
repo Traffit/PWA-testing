@@ -10,6 +10,9 @@
     width: 600px;
     top: auto;
   }
+  .pwa-wrapper .program.video {
+    background: none;
+  }
 }
 @media screen and (max-width: 832px) {
   .pwa-wrapper .video-container {
