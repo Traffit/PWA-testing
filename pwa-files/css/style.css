@@ -16,6 +16,10 @@ header {
   z-index: 10000;
 }
 
+.pwa-wrapper {
+  overflow: hidden;
+}
+
 .pwa-body section {
   margin: 0 10px;
 }
