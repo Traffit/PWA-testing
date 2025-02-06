@@ -463,7 +463,8 @@ header {
 .pwa-wrapper .program__container.video {
   background: #202124;
   margin-bottom: 30px;
-  padding-top: 15px;
+  padding-top: 24vw;
+  padding-bottom: 15px;
 }
 .pwa-wrapper .program__container.collumn {
   flex-direction: column;
@@ -975,9 +976,7 @@ header {
   width: 100%;
 }
 .pwa-wrapper .program.video {
-  padding-top: 15vw;
   padding-bottom: 20px;
-  background: #202124;
   color: #E3E3DC !important;
   z-index: 10;
 }
@@ -995,6 +994,10 @@ header {
 .pwa-wrapper .program.video .program__interaction-img span,
 .pwa-wrapper .program.video .program__reviews-rating img {
   filter: invert(1) !important;
+}
+.pwa-wrapper .program.video .program__images-box {
+  max-width: 991px;
+  margin: 0 auto;
 }
 .pwa-wrapper .video-shadow {
   background: linear-gradient(to right, rgb(32, 33, 36) 0, rgba(0, 0, 0, 0) 56%), linear-gradient(0deg, rgba(32,33,36,1) 10%, rgba(32,33,36,0) 50%);;
