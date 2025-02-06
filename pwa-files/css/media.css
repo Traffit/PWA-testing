@@ -13,6 +13,9 @@
   .pwa-wrapper .program.video {
     background: none;
   }
+  .pwa-wrapper .program__container.video {
+    padding-bottom: 15px;
+  }
 }
 @media screen and (max-width: 832px) {
   .pwa-wrapper .video-container {
