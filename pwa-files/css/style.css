@@ -466,6 +466,10 @@ header {
   padding-top: 24vw;
   padding-bottom: 15px;
 }
+.pwa-wrapper .program__container.video .program__left {
+  max-width: 930px;
+  margin: 0 auto;
+}
 .pwa-wrapper .program__container.collumn {
   flex-direction: column;
 }
@@ -994,6 +998,9 @@ header {
 .pwa-wrapper .program.video .program__interaction-img span,
 .pwa-wrapper .program.video .program__reviews-rating img {
   filter: invert(1) !important;
+}
+.pwa-wrapper .program.video .program__images-box {
+  padding: 0;
 }
 .pwa-wrapper .program.video .program__images-box {
   max-width: 991px;
