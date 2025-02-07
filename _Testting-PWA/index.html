@@ -306,6 +306,10 @@
       type="text/javascript"
       src="https://pwa-files.vercel.app/pwa-js/setup.js"
     ></script>
+    <script>
+      const lastUpdate = new Date().toLocaleDateString();
+      document.querySelector('.update-availability__date').textContent = lastUpdate;
+    </script>
 
     <link rel="canonical" href="/" data-qmeta="canonical" />
     <link rel="alternate" hreflang="en" href="/" data-qmeta="alternateEn" />
@@ -831,6 +835,20 @@
                   <span class="c-black">Downloads</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="update-availability">
+        <div class="container">
+          <div class="update-availability__container">
+            <div class="c-text">
+              <p>
+                Last update:
+              </p>
+              <p class="update-availability__date">
+                
+              </p>
             </div>
           </div>
         </div>

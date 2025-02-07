@@ -565,6 +565,25 @@ header {
   margin: 18px 0;
   color: #333;
 }
+
+.events-offer__title {
+  padding-bottom: 15px;
+}
+.events-offer__content {
+  border-radius: 8px;
+}
+.events-offer__content::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(transparent 48.15%, rgb(113, 72, 51) 94.91%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 8px;
+}
+
 .pwa-wrapper .data-safety {
   margin-bottom: 30px;
 }
