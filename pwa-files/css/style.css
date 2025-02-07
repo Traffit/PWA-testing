@@ -574,16 +574,6 @@ header {
   position: relative;
   overflow: hidden;
 }
-.events-offer__content::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  border-radius: 8px;
-}
 
 .pwa-wrapper .data-safety {
   margin-bottom: 30px;
