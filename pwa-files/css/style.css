@@ -571,6 +571,8 @@ header {
 }
 .events-offer__content {
   border-radius: 8px;
+  position: relative;
+  overflow: hidden;
 }
 .events-offer__content::after {
   content: "";
