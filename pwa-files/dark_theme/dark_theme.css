@@ -74,10 +74,6 @@ header {
     opacity: var(--opacity)!important;
 }
 
-.events-offer__content::after {
-    background-image: linear-gradient(transparent 48.15%, var(--white) 94.91%);
-}
-
 .progress {
     background: var(--progress_bg)!important;
 }
