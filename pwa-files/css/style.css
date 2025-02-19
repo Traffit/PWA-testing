@@ -573,7 +573,7 @@ header {
   position: relative;
   overflow: hidden;
   height: 50vw;
-  max-width: 300px;
+  max-height: 300px;
 }
 
 .pwa-wrapper .events-offer__content img {
