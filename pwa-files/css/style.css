@@ -549,9 +549,7 @@ header {
 .pwa-wrapper .description__update-available {
   display: flex;
   justify-content: space-between;
-}
-.pwa-wrapper .description__update {
-  line-height: 1.5;
+  line-height: 1.7;
 }
 .pwa-wrapper .description__category {
   width: calc(100% + 50px);
