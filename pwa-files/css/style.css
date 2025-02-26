@@ -211,6 +211,7 @@ header {
 }
 .header-logo {
   display: flex;  
+  align-items: center;
 }
 .header-logo__text {
   font-size: 20px;
