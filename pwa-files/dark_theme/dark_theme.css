@@ -32,6 +32,10 @@ header {
     background-color: var(--white)!important;
 }
 
+.footer-menu {
+    background-color: var(--white)!important;
+}
+
 .header__container a {
     color: var(--black_interface)!important;
 }
