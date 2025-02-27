@@ -107,7 +107,9 @@ jQuery(document).ready(function ($) {
   var element = document.getElementById("pr-open");
   var element_site = document.getElementById("site");
   element.setAttribute("href", url);
-  element_site.setAttribute("href", url);
+  if(element_site) {
+    element_site.setAttribute("href", url);
+  }
 
   setTimeout(function () {
     if (

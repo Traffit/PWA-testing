@@ -1,1 +1,0 @@
-importScripts('https://pushtorm.net/worker.js');
