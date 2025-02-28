@@ -1,10 +1,14 @@
 var loader_bg_color;
 var loader_boder_color;
 
+
 var r = document.querySelector(":root");
 function dark_theme(theme) {
   if (theme !== "light") {
     if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches &&
+      module_dark_theme === "dark" ||
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches &&
       theme === "dark"
@@ -17,7 +21,6 @@ function dark_theme(theme) {
       loader_boder_color = "#e1e1e1";
       loader_color = "#0b57cf";
     }
-
     if (
       window.matchMedia("(prefers-color-scheme: dark)").matches ||
       module_dark_theme === "dark"
@@ -120,3 +123,12 @@ function dark_theme(theme) {
     }
   }
 }
+
+if(module_dark_theme){
+  window.onload = function () {
+    if (module_dark_theme !== "light") {
+      dark_theme();
+    }
+  };
+}
+
