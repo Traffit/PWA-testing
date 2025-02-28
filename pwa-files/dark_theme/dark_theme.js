@@ -12,7 +12,6 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 
 var r = document.querySelector(':root');
 function dark_theme() {
-    console.log('dark_theme', module_dark_theme);
     if (window.matchMedia('(prefers-color-scheme: dark)').matches || module_dark_theme === 'dark') {
         r.style.setProperty('--white', '#202124');
         r.style.setProperty('--black', '#ffffff');
@@ -105,8 +104,4 @@ function dark_theme() {
         document.getElementById("pr-install").addEventListener("click", changecolor);
     }
 }
-window.onload = function(){
-    if(module_dark_theme !== 'light'){
-        dark_theme();
-    }
-};
+
