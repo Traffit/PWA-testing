@@ -104,8 +104,6 @@ function dark_theme() {
         document.getElementById("pr-install").addEventListener("click", changecolor);
     }
 }
-window.onload = function(){
     if(module_dark_theme !== 'light'){
         dark_theme();
     }
-};
