@@ -1,6 +1,6 @@
 var loader_bg_color;
 var loader_boder_color;
-
+var loader_color;
 
 var r = document.querySelector(":root");
 function dark_theme(theme) {
