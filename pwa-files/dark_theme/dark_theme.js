@@ -12,7 +12,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 
 var r = document.querySelector(':root');
 function dark_theme() {
-    console.log('dark_theme change');
+    console.log('dark_theme', module_dark_theme);
     if (window.matchMedia('(prefers-color-scheme: dark)').matches || module_dark_theme === 'dark') {
         r.style.setProperty('--white', '#202124');
         r.style.setProperty('--black', '#ffffff');
