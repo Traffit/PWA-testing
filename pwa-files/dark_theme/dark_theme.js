@@ -8,10 +8,8 @@ function dark_theme(theme) {
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches &&
-      module_dark_theme === "dark" ||
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches &&
-      theme === "dark"
+      (typeof module_dark_theme !== "undefined" && module_dark_theme === "dark" ||
+      theme === "dark")
     ) {
       loader_bg_color = "#202124";
       loader_boder_color = "rgb(40 40 40)";
