@@ -124,7 +124,7 @@ function dark_theme(theme) {
   }
 }
 
-if(module_dark_theme){
+if (typeof module_dark_theme !== "undefined" && module_dark_theme) {
   window.onload = function () {
     if (module_dark_theme !== "light") {
       dark_theme();
