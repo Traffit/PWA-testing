@@ -582,7 +582,6 @@ header {
   margin: 18px 0;
   color: #333;
 }
-
 .pwa-wrapper .events-offer__title {
   padding-bottom: 15px;
 }
@@ -591,12 +590,9 @@ header {
   position: relative;
   overflow: hidden;
 }
-
 .pwa-wrapper .events-offer__content img {
   width: 100%;
-  
 }
-
 .pwa-wrapper .data-safety {
   margin-bottom: 30px;
 }
