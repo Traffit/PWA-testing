@@ -4,19 +4,22 @@ jQuery(document).ready(function ($) {
   const shareButton = document.querySelector('.share'),
             thisUrl = window.location.href,
             thisTitle = document.title;
-  shareButton.addEventListener('click', event => {
-    var event_id_4 = "4"
-    send_api_pwa_response(event_id_4)
-    if (navigator.share) {
-      navigator.share({
-        title: thisTitle,
-        url: thisUrl
-      }).then(() => {
-       })
-      .catch(console.error);
-    } else {
-     }
-  });
+
+  if (shareButton) {
+    shareButton.addEventListener('click', event => {
+      var event_id_4 = "4"
+      send_api_pwa_response(event_id_4)
+      if (navigator.share) {
+        navigator.share({
+          title: thisTitle,
+          url: thisUrl
+        }).then(() => {
+        })
+        .catch(console.error);
+      } else {
+      }
+    });
+  }
 
 
   $(".contacts .title__top").click(function () {
